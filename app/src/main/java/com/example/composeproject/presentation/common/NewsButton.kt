@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.composeproject.ui.theme.DeepBlue
 import com.example.composeproject.ui.theme.TextWhite
 
 @Composable
@@ -35,7 +36,7 @@ fun NewsTextButton(
 ){
     TextButton(onClick = onClick) {
         Text(text = text,
-            color = TextWhite,
+            color = DeepBlue ,
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
         )
 

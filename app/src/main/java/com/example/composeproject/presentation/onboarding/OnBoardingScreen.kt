@@ -30,8 +30,10 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen(){
-     Column(modifier = Modifier.fillMaxSize()) {
+fun OnBoardingScreen(
+    event: (OnBoardingEvent) -> Unit
+){
+     Column(modifier = Modifier) {
          val pagerState = rememberPagerState(initialPage = 0) {
                 pages.size
          }
@@ -67,6 +69,7 @@ else  -> listOf("", "")
 
              Row(verticalAlignment = Alignment.CenterVertically) {
                  val scope = rememberCoroutineScope()
+
                  if (buttomState.value[0].isNotEmpty() ){
                      NewsTextButton(
                          text = buttomState.value[0],
@@ -81,8 +84,8 @@ else  -> listOf("", "")
                  }
                  NewsButton(text = buttomState.value[1], onClick = {
                      scope.launch {
-                         if(pagerState.currentPage == 3){
-                             //TODO navigate to  HomeScreen
+                         if(pagerState.currentPage == 2){
+                             event(OnBoardingEvent.saveDataEntry)
                          }else{
                              pagerState.animateScrollToPage(
                                  page = pagerState.currentPage + 1

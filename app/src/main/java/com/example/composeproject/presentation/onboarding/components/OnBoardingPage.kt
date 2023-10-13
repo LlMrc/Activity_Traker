@@ -53,9 +53,3 @@ fun OnboardingPage(
 
     }
 }
-
-@Preview
-@Composable
-fun OnBoardingPagePreview(){
-
-}
